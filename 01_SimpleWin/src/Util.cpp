@@ -1,17 +1,13 @@
 #include "Util.h"
 #include <fstream>
-#include <iostream>
+#include "Log.h"
 
 
 using namespace std;
 
 void error_out(std::string file, unsigned int linenum, const char* pMsg)
 {
-	if (pMsg)
-	{
-		cout << pMsg << " ";
-	}
-	cout << file << ":" << linenum << endl;
+	Log("file:%s line:%d msg:%s", file.c_str(), linenum, pMsg);
 }
 
 bool ReadFile(const char* fileName, std::string& outFile)

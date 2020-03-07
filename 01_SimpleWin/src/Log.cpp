@@ -128,7 +128,7 @@ void InitLogFile(const char* pszPath, const char* pszFile)
 		return;
 	}
 
-	ZeroMemory(_pszFile, 512);
+	ZeroMemory(_pszFile, strlen(_pszFile));
 	if (pszFile)
 	{
 		sprintf_s(_pszFile, sizeof(_pszFile), "%s/%s", pszPath, pszFile);

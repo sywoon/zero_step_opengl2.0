@@ -2,7 +2,7 @@
 
 cls
 call clenv.bat
-call winkitenv.bat
+
 
 :: 1 vs cl   2 clang
 set USE_CL=1

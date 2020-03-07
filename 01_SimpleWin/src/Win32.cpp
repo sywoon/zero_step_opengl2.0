@@ -274,7 +274,7 @@ bool CWin32::InitOpenGL(HWND hWnd, HGLRC& hRC)
 		1,								 /**< 版本号 */
 		PFD_DRAW_TO_WINDOW	|			 /**< 缓存区的输出显示在一个窗口中 */
 		PFD_SUPPORT_OPENGL	|			 /**< 缓存区支持OpenGL绘图 */
-		PFD_STEREO			|			 /**< 颜色缓存区是立体缓存 */
+		//PFD_STEREO			|			 /**< 颜色缓存区是立体缓存 已不再支持*/ 
 		PFD_DOUBLEBUFFER,				 /**< 颜色缓存区是双缓存 */
 		PFD_TYPE_RGBA,					 /**< 使用RGBA颜色格式 */
 		32,								 /**< 颜色缓存区中颜色值所占的位深 */
@@ -308,11 +308,11 @@ bool CWin32::InitOpenGL(HWND hWnd, HGLRC& hRC)
 	ShowWindow(hWnd, SW_NORMAL);			/**< 显示窗口 */
 	ReshapeGL();							/**< 告诉OpenGL调整窗口大小 */
 
-	glClearColor(0.3f, 0.0f, 0.0f, 0.5f);
+	glClearColor(0.3f, 0.0f, 0.0f, 1.0f);
 	glClearDepth(1.0f);
 	glDepthFunc(GL_LEQUAL);
 	glEnable(GL_DEPTH_TEST);
-	glShadeModel(GL_SMOOTH);
+	glShadeModel(GL_SMOOTH);  //GL_FLAT  GL_SMOOTH
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
 	_resizeDraw = true;
