@@ -17,7 +17,8 @@ public:
 	void Draw();
 
 	void DrawDot(const ccVertex2F& pos, float radius, const ccColor4B& color);
-
+	void DrawSegment(const ccVertex2F& from, const ccVertex2F& to, float radius, const ccColor4B& color);
+	void DrawPolygon(ccVertex2F* verts, unsigned int count, const ccColor4B& fillColor, float borderWidth, const ccColor4B& borderColor);
 
 
 protected:

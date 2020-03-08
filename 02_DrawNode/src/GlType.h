@@ -1,5 +1,6 @@
 #pragma once
 #include "GL/glew.h"
+#include <math.h>
 
 
 #ifndef MIN
@@ -67,7 +68,63 @@ typedef struct _ccV2F_C4B_T2F_Triangle
 
 
 
+static ccVertex2F v2fzero = { 0.0f,0.0f };
 
+static inline ccVertex2F v2f(float x, float y)
+{
+	ccVertex2F ret = { x, y };
+	return ret;
+}
+
+static inline ccVertex2F v2fadd(const ccVertex2F& v0, const ccVertex2F& v1)
+{
+	return v2f(v0.x + v1.x, v0.y + v1.y);
+}
+
+static inline ccVertex2F v2fsub(const ccVertex2F& v0, const ccVertex2F& v1)
+{
+	return v2f(v0.x - v1.x, v0.y - v1.y);
+}
+
+static inline ccVertex2F v2fmult(const ccVertex2F& v, float s)
+{
+	return v2f(v.x * s, v.y * s);
+}
+
+static inline ccVertex2F v2fperp(const ccVertex2F& p0)
+{
+	return v2f(-p0.y, p0.x);
+}
+
+static inline ccVertex2F v2fneg(const ccVertex2F& p0)
+{
+	return v2f(-p0.x, -p0.y);
+}
+
+static inline float v2fdot(const ccVertex2F& p0, const ccVertex2F& p1)
+{
+	return  p0.x * p1.x + p0.y * p1.y;
+}
+
+static inline ccVertex2F v2fforangle(float _a_)
+{
+	return v2f(cosf(_a_), sinf(_a_));
+}
+
+static inline ccVertex2F v2fnormalize(const ccVertex2F& p)
+{
+	float x = p.x;
+	float y = p.y;
+	float length = sqrtf(x * x + y * y);
+	if (length == 0.) return ccVertex2F{ 1.f, 0 };
+
+	return ccVertex2F{x/length, y/length};
+}
+
+static inline ccTex2F __t(const ccVertex2F& v)
+{
+	return *(ccTex2F*)&v;
+}
 
 
 
