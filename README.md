@@ -3,3 +3,8 @@
 在DrawNode部分卡主了，为了找清楚原因，提前研究2.0部分。
 
 
+## Framework_SDL
+基于sdl封装的一个opengl学习框架，方便做些简单的测试。
+[学习记录](http://note.youdao.com/noteshare?id=68064699f373106ebbcd0661add2493e)
+
+
